@@ -12,7 +12,7 @@ int main() {
   std::cout << &arr[0] << std::endl;
   std::cout << &arr[1] << std::endl;
   std::cout << &arr[2] << std::endl;
-  int * myarr = new int[];
+  int * myarr = new int [3];
   myarr[0] = 10;
   myarr[1] = 20;
   myarr[2] = 30;
