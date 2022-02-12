@@ -1,6 +1,20 @@
 #include <iostream>
 #include <fstream>
+#include <sstream>
+#include <vector>
 
+// https://stackoverflow.com/questions/9435385/split-a-string-using-c11
+std::vector<std::string> split(const std::string &s) {
+  std::stringstream ss(s);
+  std::string item;
+  std::vector<std::string> elems;
+  char delim;
+  delim = ' ';
+  while (std::getline(ss, item, delim)) {
+    elems.push_back(item);
+  }
+  return elems;
+}
 
 void openAndReadFile()
 {
@@ -34,6 +48,10 @@ void openAndReadConfigFile(std::string filename)
       while (std::getline(ifile, data))
       {
          std::cout << data << std::endl;
+         for (std::string element : split(data))
+         {
+            std::cout << element << std::endl;
+         };
       }
    }
    ifile.close();
